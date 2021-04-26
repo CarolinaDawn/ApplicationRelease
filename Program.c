@@ -47,31 +47,44 @@ int main(int argc, const char* argv[])
 	int paytype;
 	int salarypay;
 
-		printf("Select 1 for hourly employee, or 2 for salaried employee (1-2): ");
-		scanf_s("%i", &paytype);
-		if(paytype==1)
+	printf("Select 1 for hourly employee, or 2 for salaried employee (1-2): ");
+	scanf_s("%i", &paytype);
+	if (paytype == 1)
+	{
+		//program will ask how many hours they work
+		// program will ask how much they are paid
+
+		printf("How much do you get paid per hour? ");
+		scanf_s("%i", &amountPaid);
+
+		printf("How many hours per week do you work? ");
+		scanf_s("%i", &numberofHours);
+
+		if (numberofHours == 40)
 		{
-			//program will ask how many hours they work
-
-			printf("How many hours per week do you work? ");
-			scanf_s("%i", &numberofHours);
-
-			// program will ask how much they are paid
-
-			printf("How much do you get paid per hour? ");
-			scanf_s("%i", &amountPaid);
-
-			//calculation of monthly income
-			totalIncome = numberofHours * amountPaid * 4;
+			totalIncome = amountPaid * 2080 / 12;
 		}
-		else 
+		else
 		{
+			totalIncome = numberofHours * amountPaid * 52 / 12;
+		}
+
+		/*Here include an if...else statement that includes different calculations for 40 hours/wk vs. random hours/wk??
+		* Or is there a better way to include that differentiation?
+		* Is it beneficial to include a list of categories they can choose from or better to just let them fill it in?*/
+
+
+		//calculation of monthly income
+		//totalIncome = numberofHours * amountPaid * 2080 / 12;
+	}
+	else 
+	{
 			//User will enter total monthly income
-			printf("How much do you get paid per month? ");
-			scanf_s("%i", &salarypay);
+		printf("How much do you get paid per month? ");
+		scanf_s("%i", &salarypay);
 
-			totalIncome = salarypay;
-		}
+		totalIncome = salarypay;
+	}
 		
 
 		int spendAmount = 0;
@@ -95,7 +108,8 @@ int main(int argc, const char* argv[])
 		}
 
 		int i = 0;
-		for (budgetItem* currentLineItem = budget; i < 10; i++) {
+		for (budgetItem* currentLineItem = budget; i < 10; i++) 
+		{
 			printf("\n%s: Cost: %i\n", currentLineItem->name, currentLineItem->cost);
 			currentLineItem++;
 		}
