@@ -31,11 +31,55 @@ int budgetThing(budgetItem* b, int whatigot) {
 		printf("How much are you spending? \n");
 		scanf_s("%i", &b->cost);
 	} //todo Carolina try with do...while
-	
-	
 	return 0;
-	
 }
+
+//What do you want? 
+// A list of categories.
+// list mean => array
+#define NUM_OF_CATEGORIES 10
+char* categories[NUM_OF_CATEGORIES];
+
+
+void setupCategories() {
+	categories[0] = "Food";
+	categories[1] = "Not Food";
+}
+
+// Want the user to be able to pick one.
+
+#if 0
+//Return index of a category
+int pickACategory() {
+	for(int i = 0; i < NUM_OF_CATEGORIES; ++i) {
+		printf("%d: %s", categories[i]);
+	}
+	int choice;
+	scan_f("Pick on> " &choice); //TODO Caroline finish this scan_f call
+	//TODO consider 10 categories and the user inputs "16". What happens?
+	return choice;
+}
+#else 
+//Return the category itself, or a custom one
+char* pickACategory() { 
+	for(int i = 0; i < NUM_OF_CATEGORIES; ++i) {
+		printf("%d: %s", categories[i]);
+	}
+	printf("-1: Custom");
+	int choice;
+	scan_f("Pick on> " &choice); //TODO Caroline finish this scan_f call
+	if(choice == -1) {
+		//ask user for their custom category.
+		//return that custom category
+	}
+
+	//otherwise
+	//TODO consider 10 categories and the user inputs "16". What happens?
+	return categories[choice];
+}
+
+#endif
+
 
 int main(int argc, const char* argv[])
 {
