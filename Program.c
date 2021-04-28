@@ -34,7 +34,7 @@ int budgetThing(budgetItem* b, int whatigot) {
 	return 0;
 }
 
-//What do you want? 
+/*//What do you want? 
 // A list of categories.
 // list mean => array
 #define NUM_OF_CATEGORIES 10
@@ -78,7 +78,7 @@ char* pickACategory() {
 	return categories[choice];
 }
 
-#endif
+#endif*/
 
 
 int main(int argc, const char* argv[])
